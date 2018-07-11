@@ -12,7 +12,8 @@ Or try it here: add heroku web
 
 1.Fork and clone this repository, and then within the main directory execute
 
-  `bundle install`
+  `bundle install` 
+  
   `rake db:migrate`
 
 2.If you want some seed data to start with:
