@@ -1,5 +1,5 @@
 #join table
-class Lab < ApplicationRecord
+class Lab < ActiveRecord::Base
   belongs_to :course
   belongs_to :lab
 end
