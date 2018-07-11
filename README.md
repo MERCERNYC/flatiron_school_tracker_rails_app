@@ -1,6 +1,6 @@
 # Rails App Project
 
-Rails Portfolio Project for the Flatiron School.
+Rails Portfolio Project for Flatiron School.
 
 ## Overview
 
@@ -12,22 +12,22 @@ Or try it here: add heroku web
 
 1.Fork and clone this repository, and then within the main directory execute
 
-  $ bundle install
-  $ rake db:migrate
+  `bundle install`
+  `rake db:migrate`
 
 2.If you want some seed data to start with:
 
-  $ rake db:seed
+ `rake db:seed`
 
 3.Then run:
 
-  $ rails s
+  `rails s`
 
 4.Open up a new browser tab and navigate to:
 
-  $ localhost:3000
+ `localhost:3000`
 
-5.Press $ ctrl+C to shut it down
+5.Press `ctrl+C` to shut it down
 
 ## Contributing
 
