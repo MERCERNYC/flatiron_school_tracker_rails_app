@@ -2,13 +2,13 @@
 
 Rails Portfolio Project for the Flatiron School.
 
-##Overview
+## Overview
 
 The Flatiron School Tracker App can help Flatiron students to track their coursework and organize labs by week to get stuff done along their learning journey with Flatiron School.
 
 Or try it here: add heroku web
 
-##Installation
+## Installation
 
 1.Fork and clone this repository, and then within the main directory execute
 
@@ -31,7 +31,7 @@ Or try it here: add heroku web
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/'MERCERNYC'/flatironschool_tracker_rails_app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/'MERCERNYC'/flatiron_school_tracker_rails_app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
