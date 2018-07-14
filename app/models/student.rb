@@ -3,7 +3,7 @@ class Student < ActiveRecord::Base
 
   #Validation
    validates :name, presence: true
-   validates :email, uniqueness: true
+   validates :password, length: {minimum: 4}
 
   #Association
    has_many :labs
