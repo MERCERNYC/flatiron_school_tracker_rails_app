@@ -1,4 +1,6 @@
 class TopicsController < ApplicationController
+  before_action :set_topics, only: [:show, :edit, :update, :destroy]
+  #actions will all have the set_topics method called before any other code in the action is run.
 
   def index
     @topics = Topic.all
@@ -20,11 +22,16 @@ class TopicsController < ApplicationController
   end
 
   def show
+  end
+
+  private
+
+  # method returns the @topic instance variable that each of the controller actions
+  # will automatically have because of the before_action
+  def set_topics
     @topic = Topic.find(params[:id])
   end
 
-    private
-  #strong params
   def topic_params
     params.require(:topic).permit(:name, :timeline, :note)
   end
