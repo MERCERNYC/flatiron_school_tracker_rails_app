@@ -1,10 +1,8 @@
 <!-- A view to create a new topic -->
 <div class="container text-center">
   <div id="grad1">
-    <h2>Start Tracking</h2>
 
-
-    <%= form_for(Topic.new) do |f| %>
+    <%= form_for(@topic) do |f| %>
 
     <div class="form-group">
       <%= f.label :Name %>

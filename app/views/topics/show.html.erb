@@ -1,8 +1,10 @@
 <!-- A view to display a single Topic -->
+<div class="container text-center">
+   <h2 class="text-center" style="color: rgb(0,179,230)"> Topic Created</h2>
 
 <p>
   <strong>Timeline:</strong>
-  <%= @topic.timeline%>
+  <%= @topic.timeline %>
 </p>
 
 <p>
@@ -17,3 +19,5 @@
 
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>
+
+</div>

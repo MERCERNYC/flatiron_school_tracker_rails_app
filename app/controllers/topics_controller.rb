@@ -26,6 +26,14 @@ class TopicsController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    @topic.update(timeline: params[:timeline], name: params[:name], note: params[:note])
+    redirect_to @topic #topic_path(@topic)
+  end
+
   private
 
   # method returns the @topic instance variable that each of the controller actions
