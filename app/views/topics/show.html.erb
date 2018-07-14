@@ -1,6 +1,11 @@
 <!-- A view to display a single Topic -->
 
 <p>
+  <strong>Timeline:</strong>
+  <%= @topic.timeline%>
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= @topic.name %>
 </p>
@@ -10,4 +15,5 @@
   <%= @topic.note %>
 </p>
 
+<%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>

@@ -8,7 +8,9 @@ class TopicsController < ApplicationController
   end
 
   def new
+
     @topic = Topic.new
+    # raise @topic.inspect
     #render 'topics/new.html.erb'
   end
 
