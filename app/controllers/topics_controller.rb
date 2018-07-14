@@ -1,7 +1,12 @@
 class TopicsController < ApplicationController
 
+  def index
+    @topics = Topic.all
+     #render 'topics/index.html.erb'
+  end
+
   def new
-    @topics = Topic.new
+    @topic = Topic.new
     #render 'topics/new.html.erb'
   end
 
@@ -15,13 +20,8 @@ class TopicsController < ApplicationController
   end
 
   def show
-  end 
-
-  # def update
-  #   @post = Post.find(params[:id])
-  #   @post.update(post_params)
-  #   redirect_to post_path(@post)
-  # end
+    @topic = Topic.find(params[:id])
+  end
 
     private
   #strong params

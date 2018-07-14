@@ -1,0 +1,41 @@
+<!-- A view to display an index of all topics -->
+
+<h1 class="text-center" style="color: rgb(0,179,230)">Tracking Assignments </h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><strong>Timeline</strong></td>
+      <td><strong>Name</strong></td>
+      <td><strong>Note</strong></td>
+    </tr>
+
+    <% @topics.each do |topic| %>
+    <tr>
+      <td><%= topic.timeline %></td>
+      <td><%= topic.name %></td>
+      <td><%= topic.note %></td>
+
+      <td><%= link_to new_topic_path, class: 'btn btn-info' do %>
+        <i class="glyphicon glyphicon-file"></i> Show
+      <% end %></td>
+
+      <td><%= link_to new_topic_path, class: 'btn btn-warning' do %>
+        <i class="glyphicon glyphicon-edit"></i> Edit
+      <% end %></td>
+
+      <td><%= link_to new_topic_path, class: 'btn btn-danger' do %>
+        <i class="glyphicon glyphicon-trash"></i> Delete
+      <% end %></td>
+
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>

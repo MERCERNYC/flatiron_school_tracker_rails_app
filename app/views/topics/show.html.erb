@@ -1,0 +1,13 @@
+<!-- A view to display a single Topic -->
+
+<p>
+  <strong>Title:</strong>
+  <%= @topic.name %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @topic.note %>
+</p>
+
+<%= link_to 'Back', topics_path %>
