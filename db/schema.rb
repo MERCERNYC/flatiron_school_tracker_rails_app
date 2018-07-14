@@ -13,10 +13,13 @@
 ActiveRecord::Schema.define(version: 2018_07_11_183928) do
 
   create_table "labs", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "topics_id"
+    t.string "content"
+    t.integer "student_id_id"
+    t.integer "topics_id_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["student_id_id"], name: "index_labs_on_student_id_id"
+    t.index ["topics_id_id"], name: "index_labs_on_topics_id_id"
   end
 
   create_table "students", force: :cascade do |t|

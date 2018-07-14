@@ -1,3 +1,4 @@
+
 class TopicsController < ApplicationController
   before_action :set_topics, only: [:show, :edit, :update, :destroy]
   #actions will all have the set_topics method called before any other code in the action is run.
@@ -8,7 +9,6 @@ class TopicsController < ApplicationController
   end
 
   def new
-
     @topic = Topic.new
     # raise @topic.inspect
     #render 'topics/new.html.erb'
@@ -30,7 +30,7 @@ class TopicsController < ApplicationController
   end
 
   def update
-    @topic.update(timeline: params[:timeline], name: params[:name], note: params[:note])
+    @topic.update(topic_params)
     redirect_to @topic #topic_path(@topic)
   end
 
