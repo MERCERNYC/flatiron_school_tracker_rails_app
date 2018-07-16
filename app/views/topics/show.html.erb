@@ -9,15 +9,30 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @topic.name %>
+  <%= @topic.title %>
 </p>
 
 <p>
-  <strong>Note:</strong>
-  <%= @topic.note %>
+  <strong>Subject:</strong>
+  <%= @topic.subject %>
 </p>
 
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+<p>
+  <strong>Lab:</strong>
+  <%= @topic.labs %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @topic.comment %>
+</p>
+
+<%= link_to topics_path, class: 'btn btn-info' do %>
+  <i class="glyphicon glyphicon-step-backward"></i> Back
+<% end %>
+
+<%= link_to edit_topic_path, class: 'btn btn-info' do %>
+  <i class="glyphicon glyphicon-edit"></i> Edit
+<% end %>
 
 </div>

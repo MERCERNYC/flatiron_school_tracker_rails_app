@@ -24,6 +24,7 @@ class TopicsController < ApplicationController
   end
 
   def show
+     @topic = Topic.find(params[:id])
   end
 
   def edit
@@ -32,6 +33,9 @@ class TopicsController < ApplicationController
   def update
     @topic.update(topic_params)
     redirect_to @topic #topic_path(@topic)
+  end
+
+  def destroy
   end
 
   private
@@ -43,7 +47,7 @@ class TopicsController < ApplicationController
   end
 
   def topic_params
-    params.require(:topic).permit(:name, :timeline, :note)
+    params.require(:topic).permit(:timeline, :title, :subject, :comment)
   end
 
 

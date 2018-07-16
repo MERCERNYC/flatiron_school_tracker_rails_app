@@ -1,9 +1,10 @@
 class CreateTopics < ActiveRecord::Migration[5.2]
   def change
     create_table :topics do |t|
-      t.string :name
       t.string :timeline
-      t.string :note
+      t.string :title
+      t.string :subject
+      t.string :comment
       t.timestamps
     end
   end
