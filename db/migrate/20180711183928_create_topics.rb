@@ -4,7 +4,7 @@ class CreateTopics < ActiveRecord::Migration[5.2]
       t.string :timeline
       t.string :title
       t.string :lab
-      t.string :comment
+      t.string :study_group
       t.timestamps
     end
   end

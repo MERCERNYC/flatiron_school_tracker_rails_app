@@ -7,22 +7,22 @@
   -see all their topics
   -show a topic
 
+-generate
+  Controller
+  model
+  resource
 
-    <% form_for @topics do |f| %>
+#Step 3: Add subjects to topics
 
-      <div class="form-group">
-        <%= f.label :Name %>
-        <%= f.text_field :name %>
-      </div>
+Topic has a link that show the subjects and go back to topics_path
+Make the subjects in a topic real
+ - a topic has many subjects and every subject belongs to a topic
 
-      <div class="form-group">
-        <%= f.label :Timeline %>
-        <%= f.text_field :timeline %>
-      </div>
+ Topics
+   2 Ruby
+   subjects has an (id, name, topic_id)
 
-      <div class="form-group">
-        <%= f.label :Note %>
-        <%= f.text_field :note %>
-      </div>
-
-      <% end %>
+   Example:
+   id   description  topic_d
+   1      methods       2
+   1      Loops         2

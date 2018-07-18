@@ -53,7 +53,7 @@ class TopicsController < ApplicationController
   end
 
   def topic_params
-    params.require(:topic).permit(:timeline, :title, :lab, :comment)
+    params.require(:topic).permit(:timeline, :title, :lab, :study_group)
   end
 
 
