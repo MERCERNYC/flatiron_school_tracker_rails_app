@@ -20,7 +20,7 @@
     <% @topics.each do |topic| %>
     <tr>
       <td><%= topic.timeline %></td>
-      <td><%= topic.title %></td>
+      <td><%= link_to topic.title %></td>
       <td><%= topic.lab%></td>
       <td><%= topic.study_group %></td>
 

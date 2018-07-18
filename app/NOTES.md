@@ -9,7 +9,7 @@
 
 -generate
   Controller
-  model
+  model - rails generate model subject description topic_id (create model and migration files)
   resource
 
 #Step 3: Add subjects to topics
@@ -26,3 +26,22 @@ Make the subjects in a topic real
    id   description  topic_d
    1      methods       2
    1      Loops         2
+
+Test belongs_to :topic
+   topic = Topic.find(2)
+   method = Subject.create
+   method.description = "method"
+   method.topic_id = topic.id
+   method
+   method.save
+   true
+   method.topic (method added with the belongs_to Association() returns the associated object)
+   <Topic id: 2, timeline: "Week 1", title: "Ruby", lab: "completed", study_group: "Today", created_at: "2018-07-18 14:04:29", updated_at: "2018-07-18 14:04:29">
+
+  Association=(associated) assigns the associated object
+    loop  = Subject.create(:description => "Loops") loop is an instance of Association
+
+
+  Nested Resource
+
+  TOPIC/topics/:id/subjects
