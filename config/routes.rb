@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
 #creates 7 restful routes
   resources :'topics'
+  resources :'subjects'
   resources :'students'
 end

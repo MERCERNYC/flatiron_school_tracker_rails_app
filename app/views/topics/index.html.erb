@@ -1,40 +1,38 @@
 <!-- A view to display an index of all topics -->
 
-<h1 class="text-center" style="color: rgb(0,179,230)">Tracking Topics</h1>
+<h1 class="text-center" style="color: rgb(0,179,230)">Online Course Progress</h1>
 
 <table class="table">
   <thead>
     <tr>
-      <th colspan="8"></th>
+      <th colspan="7"></th>
     </tr>
   </thead>
 
   <tbody>
     <tr>
-      <td><strong>Timeline</strong></td>
-      <td><strong>Title</strong></td>
-      <td><strong>Subject</strong></td>
-      <td><strong>Lab</strong></td>
-      <td><strong>Comment</strong></td>
+      <td><h4>Timeline</h4></td>
+      <td><h4>Title</h4></td>
+      <td><h4>Lab</h4></td>
+      <td><h4>Comment</h4></td>
     </tr>
 
     <% @topics.each do |topic| %>
     <tr>
       <td><%= topic.timeline %></td>
       <td><%= topic.title %></td>
-      <td><%= topic.subject %></td>
-      <td><%= topic.labs %></td>
+      <td><%= topic.lab%></td>
       <td><%= topic.comment %></td>
 
-      <td><%= link_to topic_path, class: 'btn btn-info' do %>
+      <td><%= link_to topic_path(topic), class: 'btn btn-info' do %>
         <i class="glyphicon glyphicon-file"></i> Show
       <% end %></td>
 
-      <td><%= link_to topic_path, class: 'btn btn-warning' do %>
+      <td><%= link_to edit_topic_path(topic), class: 'btn btn-warning' do %>
         <i class="glyphicon glyphicon-edit"></i> Edit
       <% end %></td>
 
-      <td><%= link_to topic_path, class: 'btn btn-danger' do %>
+      <td><%= link_to topic_path(topic), method: :delete, class: 'btn btn-danger' do %>
         <i class="glyphicon glyphicon-trash"></i> Delete
       <% end %></td>
 
@@ -42,4 +40,9 @@
   <% end %>
 
   </tbody>
+
 </table>
+
+<div>
+  <%= link_to 'Add New Topic', new_topic_path %>
+</div>

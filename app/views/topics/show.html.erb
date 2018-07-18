@@ -1,6 +1,6 @@
 <!-- A view to display a single Topic -->
 <div class="container text-center">
-   <h2 class="text-center" style="color: rgb(0,179,230)"> Topic Created</h2>
+   <h2 class="text-center" style="color: rgb(0,179,230)"> Topic Created </h2>
 
 <p>
   <strong>Timeline:</strong>
@@ -13,13 +13,8 @@
 </p>
 
 <p>
-  <strong>Subject:</strong>
-  <%= @topic.subject %>
-</p>
-
-<p>
   <strong>Lab:</strong>
-  <%= @topic.labs %>
+  <%= @topic.lab%>
 </p>
 
 <p>
@@ -34,5 +29,9 @@
 <%= link_to edit_topic_path, class: 'btn btn-info' do %>
   <i class="glyphicon glyphicon-edit"></i> Edit
 <% end %>
+
+<div>
+  <%= link_to 'Add New Topic', new_topic_path %>
+<div>
 
 </div>

@@ -10,31 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_11_183928) do
-
-  create_table "labs", force: :cascade do |t|
-    t.string "name"
-    t.integer "student_id_id"
-    t.integer "topics_id_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["student_id_id"], name: "index_labs_on_student_id_id"
-    t.index ["topics_id_id"], name: "index_labs_on_topics_id_id"
-  end
+ActiveRecord::Schema.define(version: 2018_07_18_041048) do
 
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index [nil], name: "index_subjects_on_student_id"
+    t.index [nil], name: "index_subjects_on_topics_id"
   end
 
   create_table "topics", force: :cascade do |t|
     t.string "timeline"
     t.string "title"
-    t.string "subject"
+    t.string "lab"
     t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

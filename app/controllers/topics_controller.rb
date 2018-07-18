@@ -17,25 +17,31 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
     if @topic.save
-      redirect_to @topic # topics/topic.id #topic_path(@topic)
+      redirect_to topics_path # /topics/#{@topic.id}
     else
       render :new
     end
   end
 
   def show
-     @topic = Topic.find(params[:id])
+     # @topic = Topic.find(params[:id])
   end
 
   def edit
+    # @topic = Topic.find(params[:id])
   end
 
   def update
-    @topic.update(topic_params)
-    redirect_to @topic #topic_path(@topic)
+    if @topic.update(topic_params)
+      redirect_to topics_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    @topic.destroy
+    redirect_to topics_path
   end
 
   private
@@ -47,7 +53,7 @@ class TopicsController < ApplicationController
   end
 
   def topic_params
-    params.require(:topic).permit(:timeline, :title, :subject, :comment)
+    params.require(:topic).permit(:timeline, :title, :lab, :comment)
   end
 
 
