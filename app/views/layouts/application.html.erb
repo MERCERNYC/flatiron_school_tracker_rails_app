@@ -19,12 +19,16 @@
   <div class="container-fluid">
 
     <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Home",   '#' %></li>
-      <li><%= link_to "Sign Up",   '#' %></li>
-      <li><%= link_to "Log Out", '#' %></li>
+      <li><%= link_to "Home", root_path %></li>
     </ul>
   </div>
   </nav>
+
+  <div class="container">
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+  </div>
 
     <%= yield %>
 

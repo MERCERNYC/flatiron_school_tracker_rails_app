@@ -5,11 +5,4 @@
 
     validates :description, :presence => true
 
-    def complete?
-      @subject = current_user.subjects.find(params[:id])
-      @subject.completed = true
-      @subject.save
-      redirect_to subjects_path
-    end
-
   end

@@ -7,9 +7,10 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     if @student.save
-      redirect_to @student # students/student.id #student_path(@user)
+      flash[:success] = "Welcome to the App!"
+      redirect_to @student # students/student.id #student_path(@student )
     else
-      render :new
+      render :new #show them the form
     end
   end
 

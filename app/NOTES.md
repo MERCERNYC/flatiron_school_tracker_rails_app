@@ -45,3 +45,6 @@ Test belongs_to :topic
   Nested Resource
 
   TOPIC/topics/:id/subjects
+
+  <!-- <%= f.label :complete? %>
+  <%= f.check_box :complete?%> -->
