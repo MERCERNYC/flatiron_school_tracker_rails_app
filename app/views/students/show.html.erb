@@ -2,11 +2,15 @@
 
   <h1 class="text-center" style="color: rgb(0,179,230)"> Welcome <%= @student.name %> to Flatiron Tracker</h1></br></br>
 
-    <%= link_to new_topic_path, class: 'btn btn-success' do %>
+    <%= link_to topics_path, method: :create, class: 'btn btn-success' do %>
       <i class="glyphicon glyphicon-pencil"></i> Start Tracking
     <% end %>
 
-    <%= link_to "Log Out", logout_path, method: :delete  %>
+    <%= link_to logout_path, method: :delete, class: 'btn btn-success' do %>
+      <i class="glyphicon glyphicon-pencil"></i> Log Out
+    <% end %>
+
+    <!-- <%= link_to "Log Out", logout_path, method: :delete  %> -->
 
   </div>
 </div>

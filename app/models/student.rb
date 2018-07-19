@@ -6,7 +6,7 @@ class Student < ActiveRecord::Base
   #added field_with_errors to scss file. THE OBJECT F SEES that email property that students has errors and surronds it with field_with errors
   validates :name, :presence => true
   validates :email, :uniqueness => true
-  validates :password, presence: true, length: {minimum: 4}
+  validates :password, presence: true
 
    #add scope method used in view
 

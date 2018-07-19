@@ -1,7 +1,7 @@
 
 class TopicsController < ApplicationController
   before_action :set_topics, only: [:show, :edit, :update, :destroy]
-  before_action :authentication_required, except: [:index, :show]
+  # before_action :require_login, except: [:index, :show]
   #actions will all have the set_topics method called before any other code in the action is run.
 
   def index
