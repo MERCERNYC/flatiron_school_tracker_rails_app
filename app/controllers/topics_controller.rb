@@ -2,11 +2,17 @@
 class TopicsController < ApplicationController
   before_action :set_topics, only: [:show, :edit, :update, :destroy]
   before_action :require_login, except: [:new, :create] #need to check
-
-
   #actions will all have the set_topics method called before any other code in the action is run.
 
   def index
+  #   if logged_in?
+  #     @topics = current_user.topics
+  #     redirect_to topics_path
+  #   else
+  #     render :new
+  #   end
+  # end
+  #
     @topics = Topic.all
      #render 'topics/index.html.erb'
   end
