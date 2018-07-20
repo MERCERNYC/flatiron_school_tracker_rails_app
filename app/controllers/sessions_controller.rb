@@ -4,9 +4,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @student = Student.find_by(name: params[:nane])
-    if @student && @student.authenticate(params[:password])
-      session[:user_id] = user.id
+    @student = Student.find_by(email: params[:session][:email])
+    if @student && @student.authenticate(params[:session][:password])
+      #log the user in and redirect to the user's create topic else give invalid login and require login
+      session[:student_id] = @student.id
       redirect_to new_topic_path(@student)
     else
       flash.now[:danger] = 'Invalid email/password combination'

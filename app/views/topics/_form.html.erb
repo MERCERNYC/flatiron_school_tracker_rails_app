@@ -1,5 +1,6 @@
 <!-- A view to create a new topic -->
-<div class="form-horizontal">
+<div class="row">
+ <div class="col-md-6 col-md-offset-3">
 
     <%= form_for(@topic) do |f| %>
 
@@ -24,8 +25,8 @@
       <%= f.text_field :study_group %>
     </div>
 
-    <%= f.submit %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
 
     <% end %>
-
+  </div>
 </div>

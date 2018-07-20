@@ -3,27 +3,24 @@
   <head>
     <title>FlatironSchoolTrackerRailsApp</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
 
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <header class="navbar navbar-fixed-top navbar-inverse">
+     <div class="container">
 
     <ul class="nav navbar-nav navbar-right">
       <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Topics", topics_path %></li>
       <li><%= link_to "Log Out", logout_path, method: :delete %></li>
     </ul>
   </div>
-  </nav>
+</header
 
   <div class="container">
     <% flash.each do |message_type, message| %>

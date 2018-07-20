@@ -2,7 +2,7 @@
     has_many :subjects #collection()
     has_many :students, through: :subjects
 
-    validates :description, :presence => true
+    validates :title, :presence => true
 
 
 

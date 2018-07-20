@@ -5,7 +5,7 @@ class Student < ActiveRecord::Base
   has_secure_password
   #added field_with_errors to scss file. THE OBJECT F SEES that email property that students has errors and surronds it with field_with errors
   validates :name, :presence => true
-  validates :email, :uniqueness => true
+  validates :email, :uniqueness => true, format: /@/
   validates :password, presence: true
 
    #add scope method used in view
