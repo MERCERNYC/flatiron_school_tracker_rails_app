@@ -1,12 +1,11 @@
 class TopicsController < ApplicationController
   before_action :set_topics, only: [:show, :edit, :update, :destroy]
-  before_action :authentication_required, only: [:show, :edit, :update, :destroy]
-
+  before_action :authentication_required, except:[:show]
 
 
   def index
     #if not logged_in you cant see topics
-    @topics = Topic.all
+    @topics = current_user.topics
   end
 
   def new
