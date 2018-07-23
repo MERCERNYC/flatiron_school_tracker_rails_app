@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
-gem 'omniauth-google', '~> 1.0', '>= 1.0.2'
+gem 'omniauth-github'
 gem 'dotenv-rails'
 
 

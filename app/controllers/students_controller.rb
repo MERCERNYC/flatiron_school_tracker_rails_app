@@ -1,5 +1,8 @@
 class StudentsController < ApplicationController
 
+  #here we restrict the filter to act only on the :edit and
+  #:update actions by passing the appropriate only: options hash
+
   def new
     @student = Student.new
   end

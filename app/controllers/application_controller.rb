@@ -4,18 +4,18 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?
 
-
  # Returns true if the user is logged in, false otherwise.
   def logged_in?
     !!current_user
   end
 
-  def require_login
-    unless logged_in?
-      flash[:error] = "You must be logged in to access this section"
+  def authentication_required
+    if !logged_in?
+      flash[:danger] = "Not authorized! Please sign up or login."
       redirect_to login_path
     end
   end
+
 
   private
 

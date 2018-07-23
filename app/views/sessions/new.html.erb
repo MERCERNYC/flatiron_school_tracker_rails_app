@@ -16,6 +16,12 @@
       <%= f.password_field :password, class: 'form-control' %>
 
       <%= f.submit "Log in", class: "btn btn-primary" %>
+
+      <div class='social-icons'>
+        <%= link_to "Sign in with Github", "/auth/github", class: "fab fa-github"%> 
+      </div>
+
+
     <% end %>
 
   </div>
