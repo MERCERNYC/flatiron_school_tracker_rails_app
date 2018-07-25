@@ -1,11 +1,10 @@
 class TopicsController < ApplicationController
   before_action :set_topics, only: [:show, :edit, :update, :destroy]
-  before_action :authentication_required, except:[:show]
-
+  before_action :authentication_required, only: [:show, :edit, :update, :destroy]
 
   def index
     #if not logged_in you cant see topics
-    @topics = current_user.topics
+    @topics = Topic.all
   end
 
   def new
@@ -55,7 +54,7 @@ class TopicsController < ApplicationController
   end
 
   def topic_params
-    params.require(:topic).permit(:timeline, :title, :lab, :study_group, subjects_attributes: [:id, :description, :_destroy])
+    params.require(:topic).permit(:timeline, :title, :lab, :study_group, subjects_attributes: [:id, :description])
   end
 
 end
