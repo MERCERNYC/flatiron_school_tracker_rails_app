@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 2018_07_23_234617) do
 
   create_table "subjects", force: :cascade do |t|
     t.string "description"
-    t.integer "student_id"
-    t.integer "topic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index [nil], name: "index_subjects_on_student_id"
+    t.index [nil], name: "index_subjects_on_topic_id"
   end
 
   create_table "topics", force: :cascade do |t|

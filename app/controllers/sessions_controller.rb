@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     #Log in with OmniAuth path
-
+    if auth
     @student = Student.find_or_create_by(uid: auth['uid']) do |u|
       u.name = auth['info']['name']
       u.email = auth['info']['email']
@@ -30,6 +30,7 @@ class SessionsController < ApplicationController
     flash.now[:danger] = 'Invalid email/password combination'
     render :new
     end
+  end
   end
 
   def destroy
