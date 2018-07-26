@@ -19,16 +19,14 @@ ActiveRecord::Schema.define(version: 2018_07_23_234617) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "uid"
-    t.boolean "admin", default: false
     t.string "provider"
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.string "description"
+    t.string "name"
+    t.integer "topic_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index [nil], name: "index_subjects_on_student_id"
-    t.index [nil], name: "index_subjects_on_topic_id"
   end
 
   create_table "topics", force: :cascade do |t|
@@ -36,6 +34,7 @@ ActiveRecord::Schema.define(version: 2018_07_23_234617) do
     t.string "title"
     t.string "lab"
     t.string "study_group"
+    t.integer "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

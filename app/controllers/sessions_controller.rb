@@ -13,11 +13,8 @@ class SessionsController < ApplicationController
 
     session[:student_id] = @student.id
 
-    redirect_to new_topic_path(@student)
+    redirect_to new_student_topic_path(@student)
 
-      # @student = Student.find_or_create_by_omniauth(auth_hash)
-      # session[:student_id] = @student.id
-      # redirect_to new_topic_path(@student)
     else
     #normal login
     @student = Student.find_by(email: params[:session][:email])
@@ -25,7 +22,7 @@ class SessionsController < ApplicationController
     #log the user in and redirect to the user's create topic else give invalid login and require login
     session[:student_id] = @student.id
     flash[:success] = "Sucessfully logged in!"
-    redirect_to new_topic_path(@student)
+    redirect_to new_student_topic_path(@student)
     else
     flash.now[:danger] = 'Invalid email/password combination'
     render :new
@@ -34,7 +31,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    reset_session
+    session[:student_id] = nil
+     #was reset_session
     flash[:success] = "Sucessfully logged out!"
     redirect_to root_path
   end

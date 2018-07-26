@@ -1,6 +1,6 @@
 class Student < ActiveRecord::Base
-  has_many :subjects
-  has_many :topics, through: :subjects
+  has_many :topics
+  has_many :subjects, through: :topics
 
   has_secure_password
 
