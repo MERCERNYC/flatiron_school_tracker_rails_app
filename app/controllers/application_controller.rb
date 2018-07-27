@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def authentication_required
+  def authorization_required
    if !logged_in?
      flash[:danger] = "Not authorized! Please sign up or login."
      redirect_to login_path
@@ -21,8 +21,7 @@ class ApplicationController < ActionController::Base
 
   # Returns the current logged-in user (if any).
   def current_user
-    @current_user ||= Student.find(session[:student_id]) if session[:student_id] #@current_user is equal to the instance
-    
+    @current_user ||= Student.find(session[:student_id]) if session[:student_id]  #@current_user is equal to the instance
   end
 
 

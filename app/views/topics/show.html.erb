@@ -26,6 +26,12 @@
   <%= @topic.study_group %>
 </p>
 
+
+<h4>Subjects: </h4>
+<% @topic.subjects.each do |subject| %>
+  <%= subject.name %>
+<% end %>
+
 <%= link_to topics_path, class: 'btn btn-info' do %>
   <i class="glyphicon glyphicon-step-backward"></i> Back
 <% end %>

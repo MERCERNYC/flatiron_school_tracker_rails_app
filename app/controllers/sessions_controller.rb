@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     end
 
     session[:student_id] = @student.id
-    redirect_to topics_path
+    redirect_to @student
 
     else
     #normal login
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
     #log the user in and redirect to the user's create topic else give invalid login and require login
     session[:student_id] = @student.id
     flash[:success] = "Sucessfully logged in!"
-    redirect_to topics_path
+    redirect_to @student
     else
     flash.now[:danger] = 'Invalid email/password combination'
     render :new

@@ -3,6 +3,7 @@
     has_many :subjects
 
     validates :timeline, :title, :lab,  :presence => true
+    accepts_nested_attributes_for :subjects
 
 
   end

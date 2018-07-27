@@ -1,7 +1,5 @@
 class TopicsController < ApplicationController
   before_action :set_topics, only: [:show, :edit, :update, :destroy]
-  before_action :authentication_required, only: [:show, :edit, :update, :destroy]
-
 
   def index
     #if not logged_in you cant see topics
@@ -10,17 +8,15 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
+	  3.times do
+    @topic.subjects.build
+   end
   end
 
   def create
-    #was @topic = Topic.new(topic_params)
-    # @student = Student.find(params[:student_id])
     @topic = current_user.topics.build(topic_params)
-    # @topic = Topic.new(topic_params)
-    # @topic.student = @student
     if @topic.save
       flash[:success] = "Topic was Sucessfully created!"
-      #use this route redirect_to student_topics_path(@student)
       redirect_to topics_path # /topics/#{@topic.id}
     else
       render :'topics/new'
@@ -59,7 +55,7 @@ class TopicsController < ApplicationController
   end
 
   def topic_params
-    params.require(:topic).permit(:timeline, :title, :lab, :study_group, :student_id)
+    params.require(:topic).permit(:timeline, :title, :lab, :study_group, :student_id, :subjects_attributes => {})
   end
 
 end

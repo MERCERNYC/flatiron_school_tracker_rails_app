@@ -15,9 +15,9 @@
      <div class="container">
 
     <ul class="nav navbar-nav navbar-right">
-
+      <li><h2><%= current_user.email%></h2></li>
       <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Topics", topics_path %></li>
+      <li><%= link_to "Topics" %></li>
       <li><%= link_to "Log Out", logout_path, method: :delete %></li>
     </ul>
   </div>
