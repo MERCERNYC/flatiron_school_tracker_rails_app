@@ -1,23 +1,21 @@
 class TopicsController < ApplicationController
-  before_action :get_student
   before_action :set_topics, only: [:show, :edit, :update, :destroy]
   before_action :authentication_required, only: [:show, :edit, :update, :destroy]
 
 
   def index
     #if not logged_in you cant see topics
-    @topics = Topic.all
+    @topics = current_user.topics
   end
 
   def new
-    @topic = @student.topics.build
-    #was @topic = Topic.new
+    @topic = Topic.new
   end
 
   def create
     #was @topic = Topic.new(topic_params)
     # @student = Student.find(params[:student_id])
-    @topic = @student.topics.build(topic_params)
+    @topic = current_user.topics.build(topic_params)
     # @topic = Topic.new(topic_params)
     # @topic.student = @student
     if @topic.save
@@ -55,9 +53,6 @@ class TopicsController < ApplicationController
 
   # method returns the @topic instance variable that each of the controller actions
   # will automatically have because of the before_action
-  def get_student
-    @student = Student.find_by(params[:student_id])
-  end
 
   def set_topics
     @topic = Topic.find(params[:id])

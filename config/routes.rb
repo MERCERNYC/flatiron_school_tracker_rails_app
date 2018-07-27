@@ -14,10 +14,7 @@ Rails.application.routes.draw do
   get "/auth/github/callback" => 'sessions#create'
 
 
-  resources :students, :only => [:new, :create, :show] do
-    resources :topics
-  end
-
+  resources :students
 
   resources :topics do
     resources :subjects
