@@ -1,10 +1,10 @@
-<% provide(:title, @student.name) %>
+<% provide(:title, current_user.name)%>
 
-  <h1>Hello <%=@student.name%>!</h1><br>
+  <h1>Hello <%= current_user.name %>!</h1><br>
   <h1>Welcome to Flatiron Tracker!</h1><br>
 
   <div class="center">
 
-    <%= link_to "Start Tracking", student_topics_path(@student, @topic), class: "btn btn-gd btn-primary" %>
+   <%= link_to "Start Tracking", new_student_topic_path(@student), class: "btn btn-gd btn-primary" %>
 
   </div>

@@ -2,7 +2,6 @@ class SubjetcsController < ApplicationController
   before_action :load_topic
 
   def index
-    @subjects = Subject.all
     @subjects = @topic.subjects.all
   end
 

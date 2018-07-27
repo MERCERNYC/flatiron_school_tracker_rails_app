@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
   # Returns the current logged-in user (if any).
   def current_user
     @current_user ||= Student.find(session[:student_id]) if session[:student_id] #@current_user is equal to the instance
+    
   end
 
 
