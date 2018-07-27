@@ -26,9 +26,13 @@
       <%= f.text_field :study_group %>
     </div>
 
-    <div class="form-group">
-    <%= f.fields_for :subjects do |subject_builder| %>
-    <div class="form-group">
+    <fieldset>
+      <legend>Create New Subjects for this topic</legend>
+      <%= f.fields_for :subjects do |subject_builder| %>
+        <%= subject_builder.label :name %>
+        <%= subject_builder.text_field :name %>
+      <% end %>
+    </fieldset>
 
     <%= f.submit "Submit", class: "btn btn-primary" %>
 
