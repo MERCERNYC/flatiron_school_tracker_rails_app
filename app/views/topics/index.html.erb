@@ -26,7 +26,7 @@
       <td><%= link_to topic.title%></td>
 
       <td><%= topic.lab%></td>
-      
+
       <td><%= topic.study_group %></td>
 
       <td><%= link_to topic_path(topic), class: 'btn btn-info' do %>
@@ -49,5 +49,6 @@
 </table>
 
 <div>
-  <%= link_to 'Add New Topic', new_topic_path%>
+  <%= link_to 'Add New Topic', new_topic_path%><br>
+  <%= link_to 'Show Topics with 2 or more Subjects', two_or_more_path%>
 </div>

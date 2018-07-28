@@ -1,9 +1,0 @@
-<%= form_for([@topic, @subject]) do |f| %>
-<%= f.label :Subject %>
-<%= f.text_field :name, :placeholder => ("Enter a subject")%>
-
-<td><%= link_to 'Edit Subject', edit_subjects_path(subject) %></td>
-<td><%= link_to 'Delete Subject', subject, confirm: 'Are you sure?', method: :delete %></td>
-<td><%= link_to 'Show'%></td>
-
-<%= link_to 'New Subject', new_topic_subjects_path(@topic) %>

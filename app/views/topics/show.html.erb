@@ -26,18 +26,25 @@
   <%= @topic.study_group %>
 </p>
 
-
-<h4>Subjects: </h4>
-<% @topic.subjects.each do |subject| %>
-  <%= subject.name %>
+<p>
+<strong>Subjects:</strong>
+  <% @topic.subjects.each do |subject| %>
+    <ul>
+     <li><%= subject.name %></li>
+    </ul>
 <% end %>
+</p>
+ <!-- needs to fix the link-->
+  <%= link_to topics_path, class: 'btn btn-info' do %>
+  <i class="glyphicon glyphicon-edit"></i> Add New Subject
+  <% end %>
 
 <%= link_to topics_path, class: 'btn btn-info' do %>
-  <i class="glyphicon glyphicon-step-backward"></i> Back
+  <i class="glyphicon glyphicon-step-backward"></i> Back to All Topics
 <% end %>
 
 <%= link_to edit_topic_path, class: 'btn btn-info' do %>
-  <i class="glyphicon glyphicon-edit"></i> Edit
+  <i class="glyphicon glyphicon-edit"></i> Edit Topic
 <%end %>
 
  </div>

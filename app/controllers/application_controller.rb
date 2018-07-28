@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def authorization_required
+  def authorized_to_edit?
    if !logged_in?
      flash[:danger] = "Not authorized! Please sign up or login."
      redirect_to login_path

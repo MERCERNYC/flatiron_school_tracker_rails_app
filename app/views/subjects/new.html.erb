@@ -1,0 +1,7 @@
+<%= form_for(@subject) do |f| %>
+<%= f.label :Subject %>
+<%= f.text_field :name, :placeholder => ("Enter a subject")%>
+
+<%= f.submit "Submit", class: "btn btn-primary" %>
+
+<%end%>

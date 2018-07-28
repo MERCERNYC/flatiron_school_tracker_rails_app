@@ -13,11 +13,14 @@ Rails.application.routes.draw do
 
   get "/auth/github/callback" => 'sessions#create'
 
+  get 'two_or_more' => 'topics#two_or_more'
+
 
   resources :students
 
   resources :topics do
     resources :subjects
   end
+
 
 end

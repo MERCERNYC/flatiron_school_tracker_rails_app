@@ -3,12 +3,17 @@ class TopicsController < ApplicationController
 
   def index
     #if not logged_in you cant see topics
-    @topics = current_user.topics
+    if logged_in?
+      @topics = current_user.topics
+     else
+      flash[:notice] = "Please Login to see Topics"
+      redirect_to login_path
+    end
   end
 
   def new
     @topic = Topic.new
-	  3.times do
+	  4.times do
     @topic.subjects.build
    end
   end
@@ -23,16 +28,29 @@ class TopicsController < ApplicationController
     end
   end
 
+  #scope method
+  def two_or_more
+    @topics = Topic.two_subjects_or_more
+  end
+
   def show
      # @topic = Topic.find(params[:id])
   end
 
   def edit
     # @topic = Topic.find(params[:id])
+    if authorized_to_edit?
+    # session[:student_id] = @student.id
+      redirect_to 'topics/edit'
+    else
+      flash[:notice] = "Not authorized please Log In!"
+      redirect_to login_path
+    end
   end
 
   def update
-    if @topic.update(topic_params)
+    if authorized_to_edit?
+      @topic.update(topic_params)
       redirect_to topics_path
     else
       render 'edit'
