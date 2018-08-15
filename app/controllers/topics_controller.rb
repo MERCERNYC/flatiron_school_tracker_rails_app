@@ -1,12 +1,14 @@
 class TopicsController < ApplicationController
+  #Filters are inherited, so if you set a filter on ApplicationController, it will be run on every controller in your application.
+  before_action :authorized_to_edit?, only: [:edit, :update]
   before_action :set_topics, only: [:show, :edit, :update, :destroy]
 
   def index
     #if not logged_in you cant see topics
-    if logged_in?
+     if logged_in?
       @topics = current_user.topics
-     else
-      flash[:notice] = "Please Login to see Topics"
+    else
+      flash[:danger] = "Please sign up or login to see topics."
       redirect_to login_path
     end
   end
@@ -39,22 +41,11 @@ class TopicsController < ApplicationController
 
   def edit
     # @topic = Topic.find(params[:id])
-    if authorized_to_edit?
-    # session[:student_id] = @student.id
-      redirect_to 'topics/edit'
-    else
-      flash[:notice] = "Not authorized please Log In!"
-      redirect_to login_path
-    end
   end
 
   def update
-    if authorized_to_edit?
-      @topic.update(topic_params)
-      redirect_to topics_path
-    else
-      render 'edit'
-    end
+    @topic.update(topic_params)
+    redirect_to topics_path
   end
 
   def destroy

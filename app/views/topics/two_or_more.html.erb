@@ -9,6 +9,7 @@
 
 <tbody>
   <tr>
+    <td><h4>Student</h4></td>
     <td><h4>Timeline</h4></td>
     <td><h4>Title</h4></td>
     <td><h4>Lab</h4></td>
@@ -17,6 +18,7 @@
 
   <% Topic.two_subjects_or_more.each do |t| %>
   <tr>
+    <td><%= t.student.name %></td>
     <td><%= t.timeline %></td>
     <td><%= t.title%></td>
     <td><%= t.lab%></td>

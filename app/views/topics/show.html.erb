@@ -1,7 +1,5 @@
 <!-- A view to display a single Topic -->
-<% provide(:title, 'Topic Created') %>
-
-  <h1>Topic Created</h1>
+<h1>Topic Created</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -35,7 +33,7 @@
 <% end %>
 </p>
  <!-- needs to fix the link-->
-  <%= link_to topics_path, class: 'btn btn-info' do %>
+  <%= link_to new_topic_subject_path(@topic), class: 'btn btn-info' do %>
   <i class="glyphicon glyphicon-edit"></i> Add New Subject
   <% end %>
 

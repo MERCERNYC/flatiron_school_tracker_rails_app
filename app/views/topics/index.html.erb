@@ -1,8 +1,5 @@
 <!-- A view to display an index of all topics -->
-
-<% provide(:title, 'Study Progress') %>
-
-  <h1>Study Progress</h1>
+<h1>Study Progress</h1>
 
 <table class="table">
   <thead>
@@ -49,6 +46,5 @@
 </table>
 
 <div>
-  <%= link_to 'Add New Topic', new_topic_subject_path(@subject)%><br>
-  <%= link_to 'Show Topics with 2 or more Subjects', two_or_more_path%>
+  <%= link_to 'Show Topics with 2 or more Subjects', topics_two_or_more_path(@topic)%>
 </div>

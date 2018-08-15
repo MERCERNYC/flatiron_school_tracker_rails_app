@@ -4,7 +4,7 @@ Rails Portfolio Project for Flatiron School.
 
 ## Overview
 
-The Flatiron School Tracker App can help Flatiron students to track their coursework and organize labs by week to get stuff done along their learning journey with Flatiron School.
+The Flatiron School Tracker App can help Flatiron students to track their coursework and organize topics by timeline to get stuff done along their learning journey with Flatiron School.
 
 Or try it here: add heroku web
 
@@ -12,8 +12,8 @@ Or try it here: add heroku web
 
 1.Fork and clone this repository, and then within the main directory execute
 
-  `bundle install` 
-  
+  `bundle install`
+
   `rake db:migrate`
 
 2.If you want some seed data to start with:

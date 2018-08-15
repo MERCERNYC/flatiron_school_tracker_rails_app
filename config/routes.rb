@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   post   '/login',  to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get "/auth/github/callback" => 'sessions#create'
+  get '/auth/github/callback' => 'sessions#create'
 
-  get 'two_or_more' => 'topics#two_or_more'
+  get '/topics/two_or_more' => 'topics#two_or_more'
 
 
   resources :students
