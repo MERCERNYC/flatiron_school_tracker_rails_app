@@ -56,9 +56,6 @@ class TopicsController < ApplicationController
 
   private
 
-  # method returns the @topic instance variable that each of the controller actions
-  # will automatically have because of the before_action
-
   def set_topics
     @topic = Topic.find(params[:id])
   end
