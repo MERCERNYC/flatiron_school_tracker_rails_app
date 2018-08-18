@@ -12,31 +12,31 @@
 
 ActiveRecord::Schema.define(version: 2018_07_23_234617) do
 
-    create_table "students", force: :cascade do |t|
-      t.string "name"
-      t.string "email"
-      t.string "password_digest"
-      t.datetime "created_at", null: false
-      t.datetime "updated_at", null: false
-      t.string "uid"
-      t.string "provider"
-    end
+  create_table "students", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "uid"
+    t.string "provider"
+  end
 
-    create_table "subjects", force: :cascade do |t|
-      t.string "name"
-      t.integer "topic_id"
-      t.datetime "created_at", null: false
-      t.datetime "updated_at", null: false
-    end
+  create_table "subjects", force: :cascade do |t|
+    t.string "name"
+    t.integer "topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
-    create_table "topics", force: :cascade do |t|
-      t.string "timeline"
-      t.string "title"
-      t.string "lab"
-      t.string "study_group"
-      t.integer "student_id"
-      t.datetime "created_at", null: false
-      t.datetime "updated_at", null: false
-    end
+  create_table "topics", force: :cascade do |t|
+    t.string "timeline"
+    t.string "title"
+    t.string "lab"
+    t.string "study_group"
+    t.integer "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
