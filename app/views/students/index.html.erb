@@ -1,0 +1,14 @@
+<h1>Full Stack Web Developers Students</h1>
+
+  <ul class="list-group">
+    <% @students.each do |student| %>
+        <li class="list-group-item"><%= student.name %></li>
+    <%end%>
+
+  </ul>
+
+  <div class="center">
+
+   <%= link_to "Start Tracking", new_topic_path , class: "btn btn-gd btn-primary" %>
+
+  </div>

@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  # Require that a unique authenticity token be submitted with each form.
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?
 

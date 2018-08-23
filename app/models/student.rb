@@ -1,6 +1,7 @@
 class Student < ActiveRecord::Base
   has_many :topics
   has_many :subjects, through: :topics
+  #subjects_ids=ids
 
   has_secure_password
 
