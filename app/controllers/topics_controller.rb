@@ -37,6 +37,7 @@ class TopicsController < ApplicationController
 
   def show
      # @topic = Topic.find(params[:id])
+     render json: @topic, status: 200
   end
 
   def edit

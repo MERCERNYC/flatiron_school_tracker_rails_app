@@ -7,6 +7,7 @@ class SubjectsController < ApplicationController
 
   def show
     @subject = Topic.find(params[:topic_id]).subjects.find(params[:id])
+    
   end
 
   def create
