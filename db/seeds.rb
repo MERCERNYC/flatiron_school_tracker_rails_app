@@ -9,3 +9,4 @@
 Topic.create(timeline:'Week 1', name: 'Ruby', note: 'Open Office Hours: Ruby Topics: Ruby')
 Topic.create(timeline:'Week 2', name: 'Github', note: 'Open Office Hours: Github Topics: Github')
 Topic.create(timeline:'Week 3', name: 'HTMl & CSS', note: 'Open Office Hours: CSS Topics: CSS')
+Topic.create(timeline:'Week 4', name: 'JavaScript', note: 'Open Office Hours: JavaScript')
