@@ -37,10 +37,13 @@ class TopicsController < ApplicationController
 
   def show
      # @topic = Topic.find(params[:id])
-     render json: @topic, status: 200
+     respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @topic.to_json}
+      end
   end
 
-  def edit
+  def edits
     # @topic = Topic.find(params[:id])
   end
 
