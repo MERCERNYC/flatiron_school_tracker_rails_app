@@ -1,6 +1,6 @@
 # Rails App Project
 
-Rails Portfolio Project for Flatiron School.
+Rails-JS Portfolio Project for Flatiron School.
 
 ## Overview
 
