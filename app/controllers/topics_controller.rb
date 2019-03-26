@@ -7,6 +7,10 @@ class TopicsController < ApplicationController
     #if not logged_in you cant see topics
      if logged_in?
       @topics = current_user.topics
+      respond_to do |format|
+       format.html { render :index }
+       format.json { render json: @topics.to_json}
+       end
     else
       flash[:danger] = "Please sign up or login to see topics."
       redirect_to login_path
@@ -20,8 +24,9 @@ class TopicsController < ApplicationController
    end
   end
 
-  def create
+  def create #JSON representation of the topic so that I can use it to display the new topic without redirecting or refreshing the page
     @topic = current_user.topics.build(topic_params)
+    render json: @topic, status: 201 # 201 means that the resource was created
     if @topic.save
       flash[:success] = "Topic was Sucessfully created!"
       redirect_to topics_path # /topics/#{@topic.id}
