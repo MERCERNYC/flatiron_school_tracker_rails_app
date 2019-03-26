@@ -2,10 +2,6 @@ class StudentsController < ApplicationController
 
   def index
      @students = Student.all
-     respond_to do |format|
-      format.html { render :index }
-      format.json { render json: @students.to_json}
-      end
   end
 
   def new
