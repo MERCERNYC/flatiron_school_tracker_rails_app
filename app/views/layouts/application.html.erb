@@ -4,8 +4,8 @@
     <title>FlatironSchoolTrackerRailsApp</title>
 
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all','data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application' %>
+    <%= javascript_include_tag 'application' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
   </head>
 
@@ -28,7 +28,9 @@
     <% end %>
   </div>
 
+  <div id= "topic_container">
     <%= yield %>
+  </div>
 
   </body>
 </html>
