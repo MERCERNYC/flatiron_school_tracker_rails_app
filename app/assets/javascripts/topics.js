@@ -35,6 +35,23 @@ const getTopicsIndex = () => {
   })
 }
 
+const postTopicsShow = () => {
+  $(document).on('click', '.show_topics', function(e){
+  e.preventDefault()
+  let id = $(this).attr('data-id')
+  fetch(`/topics/${id}.json`)
+  .then(resp => resp.json())
+  .then(topic => {
+      $('#topic_container').empty()
+      let newTopic = new Topic(topic)
+      let topicHtml = newTopic.renderShow()
+      $('#topic_container').append(topicHtml)//Inject the HTML to the body of the page using append
+    })
+  })
+}
+
+//create object for topic and subject
+
 function Topic(topic) {
   this.id= topic.id
   this.timeline = topic.timeline
