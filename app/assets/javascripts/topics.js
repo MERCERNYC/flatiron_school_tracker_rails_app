@@ -54,6 +54,7 @@ const postTopicsShow = () => {
 
 function Topic(topic) {
   this.id= topic.id
+  this.id = topic.id
   this.timeline = topic.timeline
   this.title = topic.title
   this.lab = topic.lab
