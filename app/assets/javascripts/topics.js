@@ -5,6 +5,9 @@
 $(document).ready(() => {
  alert("yo!")
  listTopics()
+ alert("You go girl! ")
+ getTopicsIndex()
+ postTopicsShow()
 })
 
 //or use function with no arrow
