@@ -26,10 +26,11 @@ class TopicsController < ApplicationController
 
   def create #JSON representation of the topic so that I can use it to display the new topic without redirecting or refreshing the page
     @topic = current_user.topics.build(topic_params)
-    render json: @topic, status: 201 # 201 means that the resource was created
     if @topic.save
       flash[:success] = "Topic was Sucessfully created!"
-      redirect_to topics_path # /topics/#{@topic.id}
+      render json: @topic
+       end
+      # redirect_to topics_path # /topics/#{@topic.id}
     else
       render :'topics/new'
     end
