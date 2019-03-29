@@ -62,6 +62,19 @@ function Topic(topic) {
 }
 
 Topic.prototype.formatTopic = function(){
+Topic.prototype.renderIndex = function() {
+  let topicHtml = `
+
+   <tr>
+      <td><a href="/topics/${this.id}" data-id="${this.id}" class="show_topics"><h1>${this.title}</h1></a></td>
+
+      <td><button><a href="/topics/${this.id}/new" data-id="${this.id}" class="update_topic"> Add New Topic</a></button></td>
+      <td><button><a href="/topics/${this.id}/edit" data-id="${this.id}" class="update_topic"> Edit</a></button></td>
+      <td><button><a href="/topics/${this.id} " data-id="${this.id}" class="delete_topic" data-method="delete">Delete</a></button></td>
+    </tr>
+    `
+  return topicHtml
+}
   let topicHtml = `
 
   <tr>
