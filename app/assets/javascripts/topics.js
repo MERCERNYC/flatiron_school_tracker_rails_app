@@ -15,6 +15,11 @@ $(document).ready(() => {
 const listTopics = () => {
   $('.topics_data').on('click', function(event){
     event.preventDefault()
+//Click event Topics
+
+const getTopicsIndex = () => {
+   $('.topics_data').on('click', function(e){
+    e.preventDefault()
     history.pushState(null, null, 'topics')
     // getTopics()
     fetch(`/topics.json`)
