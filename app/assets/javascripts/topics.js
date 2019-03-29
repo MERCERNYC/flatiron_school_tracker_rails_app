@@ -21,15 +21,15 @@ const getTopicsIndex = () => {
    $('.topics_data').on('click', function(e){
     e.preventDefault()
     history.pushState(null, null, 'topics')
-    // getTopics()
+
     fetch(`/topics.json`)
     .then(resp => resp.json())
     .then(topics => {
       $('#topic_container').html('')
       topics.forEach(topic => {
         let newTopic = new Topic(topic)
-        let topicHtml = newTopic.formatTopic()
-        $('#topic_container').append(topicHtml)
+        let topicHtml = newTopic.renderIndex()
+        $('#topic_container').append(topicHtml)//Inject the HTML to the body of the page using append
       })
     })
   })
@@ -53,7 +53,6 @@ const postTopicsShow = () => {
 //create object for topic and subject
 
 function Topic(topic) {
-  this.id= topic.id
   this.id = topic.id
   this.timeline = topic.timeline
   this.title = topic.title
@@ -61,7 +60,6 @@ function Topic(topic) {
   this.study_group = topic.study_group
 }
 
-Topic.prototype.formatTopic = function(){
 Topic.prototype.renderIndex = function() {
   let topicHtml = `
 
@@ -75,12 +73,22 @@ Topic.prototype.renderIndex = function() {
     `
   return topicHtml
 }
+
+Topic.prototype.renderShow = function() {
   let topicHtml = `
 
+  <h1>Topic Created</h1>
+
   <tr>
-    <td><a href="/topics/${this.timeline}" data-id="${this.id}" </a></td>
+   <td><strong>Timeline:</strong> ${this.timeline}</td></br>
+   <td><strong>Title:</strong> ${this.title}</td></br>
+   <td><strong>Lab:</strong> ${this.lab}</td></br>
+   <td><strong>Study Group:</strong> ${this.study_group}</td></br>
   </tr>
 
-    `
-    return topicHtml
+
+  <button><a href="/topics" class="topic_index">Back to All Topics</a></button>
+
+  `
+  return topicHtml
 }
