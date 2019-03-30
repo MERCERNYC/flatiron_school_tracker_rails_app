@@ -1,6 +1,6 @@
 class TopicsSerializer < ActiveModel::Serializer
-  attributes :id, :timeline, :title, :lab, :study_group, :student_id
+  attributes :id, :timeline, :title, :lab, :study_group 
 
   has_many :subjects
-  belongs_to :student
+
 end
