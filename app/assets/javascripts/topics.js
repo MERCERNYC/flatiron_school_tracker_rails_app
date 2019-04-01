@@ -32,7 +32,7 @@ const postTopicsShow = () => {
   let id = $(this).attr('data-id')
 
   fetch(`/topics/${id}.json`)
-  .then(resp => resp.json())
+  .then(resp => resp.json())// parses JSON response into native Javascript objects
   .then(topic => {
       $('#topic_container').html('')
       let newTopic = new Topic(topic)
@@ -67,12 +67,10 @@ Topic.prototype.renderShow = function() {
    <td><strong>Timeline:</strong> ${this.timeline}</td></br>
    <td><strong>Title:</strong> ${this.title}</td></br>
    <td><strong>Lab:</strong> ${this.lab}</td></br>
-   <td><strong>Study Group:</strong> ${this.study_group}</td></br>
-   <td><strong>Subjects:</strong>${this.subjects}</td></br></br>
+   <td><strong>Study Group:</strong> ${this.study_group}</td></br></br>
+   <td><strong>Subject:</strong>${this.subjects_attributes}</td></br></br>
    <button><a href="/topics" class="topic_index">Back to All Topics</a></button>
   </tr>
-
-
 
   `
   return topicHtml
@@ -85,7 +83,7 @@ function Topic(topic) {
   this.title = topic.title
   this.lab = topic.lab
   this.study_group = topic.study_group
-  this.subjects = topic.subjects
+  this.subjects_attributes = topic.subjects_attributes
 }
 
 //form submited with Ajax
@@ -96,6 +94,7 @@ $(function() {
 
     const values = $(this).serialize()
     $.post('/topics', values).done(function(data) {
+      console.log(data)
     $('#topic_container').html(" ")
 
     const newTopic = new Topic(data)
