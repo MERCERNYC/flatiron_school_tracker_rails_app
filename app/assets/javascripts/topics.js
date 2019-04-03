@@ -68,7 +68,7 @@ Topic.prototype.renderShow = function() {
    <td><strong>Title:</strong> ${this.title}</td></br>
    <td><strong>Lab:</strong> ${this.lab}</td></br>
    <td><strong>Study Group:</strong> ${this.study_group}</td></br></br>
-   <td><strong>Subject:</strong>${this.subjects_attributes}</td></br></br>
+   <td><strong>Subject:</strong>${this.subjects}</td></br></br>
    <button><a href="/topics" class="topic_index">Back to All Topics</a></button>
   </tr>
 
@@ -83,8 +83,9 @@ function Topic(topic) {
   this.title = topic.title
   this.lab = topic.lab
   this.study_group = topic.study_group
-  this.subjects_attributes = topic.subjects_attributes
+  this.subjects = topic.subjects
 }
+
 
 //form submited with Ajax
 
