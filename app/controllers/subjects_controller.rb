@@ -14,6 +14,7 @@ class SubjectsController < ApplicationController
     @topic = Topic.find(params[:topic_id])# finding the parent
     @subject = @topic.subjects.build(subject_params)
     if @subject.save
+      # render json: @subject
       redirect_to topic_subject_path(@topic, @subject)
       # topics/:topic_id/subjects/:id
     else
