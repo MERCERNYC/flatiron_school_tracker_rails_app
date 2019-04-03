@@ -24,7 +24,7 @@
       <%= f.text_field :study_group %>
     </div>
 
-    <fieldset>
+    <fieldset class="subjects">
       <legend>Create New Subjects for this topic</legend>
       <%= f.fields_for :subjects do |subject_builder| %>
         <%= subject_builder.label :name %>
