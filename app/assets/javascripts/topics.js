@@ -59,6 +59,13 @@ Topic.prototype.renderIndex = function() {
 
 //SHOW
 Topic.prototype.renderShow = function() {
+//mapping over the subjects array
+let subjectsHtml = this.subjects.map(subject => {
+  return (`
+    <div>${subject.name}</div>
+    `)
+})
+
   let topicHtml = `
 
   <h1>Topic Created</h1>
@@ -68,13 +75,15 @@ Topic.prototype.renderShow = function() {
    <td><strong>Title:</strong> ${this.title}</td></br>
    <td><strong>Lab:</strong> ${this.lab}</td></br>
    <td><strong>Study Group:</strong> ${this.study_group}</td></br></br>
-   <td><strong>Subject:</strong>${this.subjects}</td></br></br>
+   <td><strong>Subjects:</strong><ul>${subjectsHtml}</ul></td></br></br>
+
    <button><a href="/topics" class="topic_index">Back to All Topics</a></button>
   </tr>
 
   `
   return topicHtml
 }
+
 
 //Constructor Function to create objects
 function Topic(topic) {
