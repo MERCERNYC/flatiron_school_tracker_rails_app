@@ -64,7 +64,7 @@ let subjectsHtml = this.subjects.map(subject => {
   return (`
     <div>${subject.name}</div>
     `)
-}).join(' ')
+}).join(' ')// creates and returns a new string by concatenating all of the elements in an array
 
   let topicHtml = `
 
