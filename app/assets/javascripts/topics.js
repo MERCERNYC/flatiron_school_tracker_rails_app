@@ -64,7 +64,7 @@ let subjectsHtml = this.subjects.map(subject => {
   return (`
     <div>${subject.name}</div>
     `)
-})
+}).join(' ')
 
   let topicHtml = `
 
