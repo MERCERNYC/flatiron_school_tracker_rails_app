@@ -5,8 +5,9 @@ $(document).ready(() => {
  postTopicsShow()
 })
 
+
 //Render Index Page
-const getTopicsIndex = () => {
+function getTopicsIndex() {
    $('.topics_data').on('click', function(e){
     e.preventDefault()
     history.pushState(null, null, 'topics')
@@ -26,7 +27,7 @@ const getTopicsIndex = () => {
 }
 
 //Render Show Page
-const postTopicsShow = () => {
+function postTopicsShow() {
   $(document).on('click', '.show_topics', function(e){
   e.preventDefault()
   let id = $(this).attr('data-id')
