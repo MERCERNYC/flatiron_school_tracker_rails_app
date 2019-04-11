@@ -43,7 +43,7 @@ class TopicsController < ApplicationController
      # @topic = Topic.find(params[:id])
      respond_to do |format|
       format.html { render :show }
-      format.json { render json: @topic.to_json}
+      format.json { render json: @topic}
       end
   end
 
