@@ -3,6 +3,7 @@ $(document).ready(() => {
  alert("Loaded! ")
  indexTopics()
  showTopic()
+ sortTopics()
 })
 
 //get all topics via Fetch Get request indexTopics(), sends a GET request as soon as the page loads to retrieve all Topics.
@@ -16,6 +17,39 @@ function indexTopics(){
     .then(resp => resp.json())
     .then(topics => {
       $('#topic_container').html('')
+
+      topics.forEach(topic => {
+        let newTopic = new Topic(topic)
+        let topicHtml = newTopic.formatTopic()
+        $('#topic_container').append(topicHtml)
+      })
+    })
+  })
+}
+
+function sortTopics() {
+  $('.sort_data').on("click", function(e) {
+
+    e.preventDefault()
+
+    fetch('/topics.json')
+    .then(resp => resp.json())
+    .then(topics => {
+      $('#topic_container').html('')
+
+
+      topics.sort(function(a, b) {
+        const nameA = a.title.toUpperCase(); // ignore upper and lowercase
+        const nameB = b.title.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        // names must be equal
+        return 0;
+      });
 
       topics.forEach(topic => {
         let newTopic = new Topic(topic)
@@ -45,7 +79,9 @@ function showTopic() {
   })
 }
 
-//Submit topics via ajax
+
+
+//submiot
 //It serializes the data and sends a GET request to the application. The responses is a JSON object, which is used to create a new Topic  object.
 //The newTopicForm prototype template is rendered using this object’s attributes and injected into the page.
 
@@ -75,21 +111,37 @@ function Topic(topic) {
   this.subjects = topic.subjects
 }
 
+Topic.prototype.formatTopic = function() {
+  return (`
 
-//form submited with Ajax
+   <tr>
+      <td><a href="/topics/${this.id}" data-id="${this.id}" class="show_topics"><h1>${this.title}</h1></a></td>
+      <td><button><a href="/topics/${this.id}/edit" data-id="${this.id}" class="edit_topic"> Edit</a></button></td>
+      <td><button><a href="/topics/${this.id}" data-id="${this.id}" class="delete_topic" data-method="delete">Delete</a></button></td>
+    </tr>
+    `)
+}
 
-$(function() {
-  $('form#new_topic').on('submit',function (e) {
-    e.preventDefault()
 
-    const values = $(this).serialize()
-    $.post('/topics', values).done(function(data) {
-      console.log(data)
-    $('#topic_container').html(" ")
+Topic.prototype.newTopicForm = function() {
+  let subjectsHtml = this.subjects.map(subject => {
+    return (`
+      <div>${subject.name}</div>
+    `)
+  }).join(' ')
 
-    const newTopic = new Topic(data)
-    const htmltoAdd = newTopic.renderShow()
-    $('#topic_container').html(htmltoAdd)
-    })
-  })
-})
+    return(`
+
+    <h1>Topic Created</h1>
+
+    <tr>
+     <td><strong>Timeline:</strong> ${this.timeline}</td></br>
+     <td><strong>Title:</strong> ${this.title}</td></br>
+     <td><strong>Lab:</strong> ${this.lab}</td></br>
+     <td><strong>Study Group:</strong> ${this.study_group}</td></br></br>
+     <td><strong>Subjects:</strong><ul>${subjectsHtml}</ul></td></br></br>
+
+
+
+  `)
+}
