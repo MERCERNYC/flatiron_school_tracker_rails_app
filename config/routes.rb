@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get '/topics/two_or_more' => 'topics#two_or_more'
 
+  get 'topics/:id/next' => 'topics#next'
+
 
   resources :students
 
