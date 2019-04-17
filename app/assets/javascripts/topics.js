@@ -1,92 +1,71 @@
-// this refers to window.document
+// When document is completly loaded
 $(document).ready(() => {
- alert("You go girl! ")
- getTopicsIndex()
- postTopicsShow()
+ alert("Loaded! ")
+ indexTopics()
+ showTopic()
 })
 
-
-//Render Index Page
-function getTopicsIndex() {
-   $('.topics_data').on('click', function(e){
-    e.preventDefault()
+//get all topics via Fetch Get request indexTopics(), sends a GET request as soon as the page loads to retrieve all Topics.
+//We iterate over the response, creating each a Topic object for each node and rendering it to the page using JQuery.
+function indexTopics(){
+  $('.topics_data').on('click', function(event){
+    event.preventDefault()
     history.pushState(null, null, 'topics')
 
-    fetch(`/topics.json`)
+  fetch(`/topics.json`)
     .then(resp => resp.json())
     .then(topics => {
       $('#topic_container').html('')
 
       topics.forEach(topic => {
         let newTopic = new Topic(topic)
-        let topicHtml = newTopic.renderIndex()
-        $('#topic_container').append(topicHtml)//Inject the HTML to the body of the page using append
+        let topicHtml = newTopic.formatTopic()
+        $('#topic_container').append(topicHtml)
       })
     })
   })
 }
 
-//Render Show Page
-function postTopicsShow() {
-  $(document).on('click', '.show_topics', function(e){
-  e.preventDefault()
-  let id = $(this).attr('data-id')
+//showTopic() function sends a GET request to the application.
+//The JSON response is passed as an argument to create a new Topic.
+//The showTopic template is rendered using protoptype newTopicForm and then injected into the page.
+function showTopic() {
+  $(document).on('click','.show_topics', function(event){
+    event.preventDefault()
+    let id = $(this).attr('data-id')
 
   fetch(`/topics/${id}.json`)
-  .then(resp => resp.json())// parses JSON response into native Javascript objects
-  .then(topic => {
+    .then(resp => resp.json())
+    .then(topic => {
       $('#topic_container').html('')
-      let newTopic = new Topic(topic)
-      let topicHtml = newTopic.renderShow()
-      $('#topic_container').append(topicHtml)//Inject the HTML to the body of the page using append
+        let newTopic = new Topic(topic)
+        let topicHtml = newTopic.newTopicForm()
+        $('#topic_container').append(topicHtml)
     })
   })
 }
 
-//Method on the prototype for JS objects
+//Submit topics via ajax
+//It serializes the data and sends a GET request to the application. The responses is a JSON object, which is used to create a new Topic  object.
+//The newTopicForm prototype template is rendered using this object’s attributes and injected into the page.
 
-//INDEX
-Topic.prototype.renderIndex = function() {
-  let topicHtml = `
+$(function() {
+  $('form#new_topic').on('submit',function (event) {
+    event.preventDefault()
 
-   <tr>
-      <td><a href="/topics/${this.id}" data-id="${this.id}" class="show_topics"><h1>${this.title}</h1></a></td>
-      <td><button><a href="/topics/${this.id}/edit" data-id="${this.id}" class="update_topic"> Edit</a></button></td>
-      <td><button><a href="/topics/${this.id}" data-id="${this.id}" class="delete_topic" data-method="delete">Delete</a></button></td>
-    </tr>
-    `
-  return topicHtml
-}
+    const values = $(this).serialize()
+    $.post('/topics', values).done(function(data) {
+      console.log(data)
+    $('#topic_container').html(" ")
 
-//SHOW
-Topic.prototype.renderShow = function() {
-//mapping over the subjects array
-let subjectsHtml = this.subjects.map(subject => {
-  return (`
-    <div>${subject.name}</div>
-    `)
-}).join(' ')// creates and returns a new string by concatenating all of the elements in an array
-
-  let topicHtml = `
-
-  <h1>Topic Created</h1>
-
-  <tr>
-   <td><strong>Timeline:</strong> ${this.timeline}</td></br>
-   <td><strong>Title:</strong> ${this.title}</td></br>
-   <td><strong>Lab:</strong> ${this.lab}</td></br>
-   <td><strong>Study Group:</strong> ${this.study_group}</td></br></br>
-   <td><strong>Subjects:</strong><ul>${subjectsHtml}</ul></td></br></br>
-
-   <button><a href="/topics" class="topic_index">Back to All Topics</a></button>
-  </tr>
-
-  `
-  return topicHtml
-}
+    const newTopic = new Topic(data)
+    const htmltoAdd = newTopic.newTopicForm()
+    $('#topic_container').html(htmltoAdd)
+    })
+  })
+})
 
 
-//Constructor Function to create objects
 function Topic(topic) {
   this.id = topic.id
   this.timeline = topic.timeline
