@@ -37,19 +37,13 @@ function sortTopics() {
     .then(topics => {
       $('#topic_container').html('')
 
+      topics.sort((a, b) => a.title.localeCompare(b.title))
 
-      topics.sort(function(a, b) {
-        const nameA = a.title.toUpperCase(); // ignore upper and lowercase
-        const nameB = b.title.toUpperCase(); // ignore upper and lowercase
-        if (nameA < nameB) {
-          return -1;
-        }
-        if (nameA > nameB) {
-          return 1;
-        }
-        // names must be equal
-        return 0;
-      });
+
+// sort() func receives two arguments (a and b) and should
+// return  1 if the first argument should preceed the second,
+// return -1 if the second argument should preceed the first and
+// return  0 if they are equal
 
       topics.forEach(topic => {
         let newTopic = new Topic(topic)
