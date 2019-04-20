@@ -39,12 +39,6 @@ function sortTopics() {
 
       topics.sort((a, b) => a.title.localeCompare(b.title))
 
-
-// sort() func receives two arguments (a and b) and should
-// return  1 if the first argument should preceed the second,
-// return -1 if the second argument should preceed the first and
-// return  0 if they are equal
-
       topics.forEach(topic => {
         let newTopic = new Topic(topic)
         let topicHtml = newTopic.formatTopic()
@@ -54,9 +48,7 @@ function sortTopics() {
   })
 }
 
-//showTopic() function sends a GET request to the application.
-//The JSON response is passed as an argument to create a new Topic.
-//The showTopic template is rendered using protoptype newTopicForm and then injected into the page.
+//showTopic() function sends a GET request to the application
 function showTopic() {
   $(document).on('click','.show_topics', function(event){
     event.preventDefault()
@@ -73,10 +65,6 @@ function showTopic() {
   })
 }
 
-
-
-//submiot
-//It serializes the data and sends a GET request to the application. The responses is a JSON object, which is used to create a new Topic  object.
 //The newTopicForm prototype template is rendered using this object’s attributes and injected into the page.
 
 $(function() {
@@ -134,8 +122,6 @@ Topic.prototype.newTopicForm = function() {
      <td><strong>Lab:</strong> ${this.lab}</td></br>
      <td><strong>Study Group:</strong> ${this.study_group}</td></br></br>
      <td><strong>Subjects:</strong><ul>${subjectsHtml}</ul></td></br></br>
-
-
 
   `)
 }
