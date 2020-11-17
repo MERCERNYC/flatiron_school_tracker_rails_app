@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
-gem 'omniauth-github'
+gem "omniauth-github", '1.1.1'
 gem 'dotenv-rails'
 
 
