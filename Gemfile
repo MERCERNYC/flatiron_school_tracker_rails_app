@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 #Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'omniauth', '~> 1.6', '>= 1.6.1'
+gem 'omniauth', '~> 1.9'
 gem "omniauth-github", '1.1.1'
 gem 'dotenv-rails'
 
